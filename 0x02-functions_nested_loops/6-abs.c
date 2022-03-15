@@ -16,6 +16,8 @@ int _abs(int ab)
 		ab = -1 * ab;
 		printf("%i", ab);
 	}
+	return (0);
+
 }
 
 
