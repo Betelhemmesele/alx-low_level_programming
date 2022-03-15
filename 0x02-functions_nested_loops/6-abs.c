@@ -9,12 +9,12 @@ int _abs(int ab)
 {
 	if (ab >= 0)
 	{
-		printf(ab);
+		printf("%i", ab);
 	}
 	else
 	{
 		ab = -1 * ab;
-		printf(ab);
+		printf("%i", ab);
 	}
 }
 
