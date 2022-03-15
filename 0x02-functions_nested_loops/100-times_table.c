@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _putchar(char c);
+
 
 /**
  * print_times_table - print the times table until n
