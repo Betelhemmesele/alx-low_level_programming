@@ -9,14 +9,14 @@ int _abs(int ab)
 {
 	if (ab >= 0)
 	{
-		printf("%i", ab);
+		return (ab);
 	}
 	else
 	{
 		ab = -1 * ab;
-		printf("%i", ab);
+		return (ab);
 	}
-	return (0);
+	
 
 }
 
