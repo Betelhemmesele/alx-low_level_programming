@@ -2,32 +2,24 @@
 #include <stdio.h>
 
 /**
-  * cap_string - ...
-  * @s: ...
-  *
-  * Return: char value
-  */
+ * *cap_string - this is awesome
+ * @s: pointer to char params
+ *
+ * Return: *s
+ */
+
 char *cap_string(char *s)
 {
-	int a = 0, i;
-	int cspc = 13;
-	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
+	int i, j;
+	char delimeters[] = " \t\n,;.!?\"(){}";
 
-	while (s[a])
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		i = 0;
-
-		while (i < cspc)
-		{
-			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
-				s[a] -= 32;
-
-			i++;
-		}
-
-		a++;
+		if (s[0] >= 97 && s[0] <= 122)
+			s[0] = s[0] - 32;
+				for (j = 0; delimeters[j] != '\0'; j++)
+					if (s[i] == delimeters[j] && s[i + 1] >= 97 && s[i + 1] <= 122)
+						s[i + 1] = s[i + 1] - 32;
 	}
-
 	return (s);
 }
-
