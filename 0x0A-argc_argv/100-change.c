@@ -1,55 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-
 /**
- * main - prints the minimum number of coins
- * to make change for an amount of money
- * @argc: n args
- * @argv: arr args
- * Return: 0
+ *main-prints the minimum number of coins
+ *to make change for an amount of money.
+ *@argc:number of commandline arguments.
+ *@argv:pointer to an array of commmand line arguments.
+ *Return:0-success, non-zero-fail.
  */
+
 int main(int argc, char *argv[])
 {
-	int value, c;
+	if (argc == 2)
+	{
+	int i, leastcents = 0, money = atoi(argv[1]);
+	int cents[] = {25, 10, 5, 2, 1};
 
-	c = 0;
-	if (argc != 2)
+	for (i = 0; i < 5; i++)
+	{
+		if (money >= cents[i])
+		{
+			leastcents += money / cents[i];
+			money = money % cents[i];
+			if (money % cents[i] == 0)
+			{
+				break;
+			}
+		}
+	}
+	printf("%d\n", leastcents);
+	}
+	else
 	{
 		printf("Error\n");
 		return (1);
 	}
-	value = atoi(argv[1]);
-	if (value < 0)
-	{
-		printf("%d\n", 0);
-		return (0);
-	}
-	if (value % 25 >= 0)
-	{
-		c += value / 25;
-		value = value % 25;
-	}
-	if (value % 10 >= 0)
-	{
-		c += value / 10;
-		value = value % 10;
-	}
-	if (value % 5 >= 0)
-	{
-		c += value / 5;
-		value = value % 5;
-	}
-	if (value % 2 >= 0)
-	{
-		c += value / 2;
-		value = value % 2;
-	}
-	if (value % 1 >= 0)
-	{
-		c += value / 1;
-	}
-	printf("%d\n", c);
 	return (0);
 }
